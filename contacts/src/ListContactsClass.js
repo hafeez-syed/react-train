@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ListContacts extends Component {
+class ListContactsClass extends Component {
     render() {
         const contacts = this.props.contacts;
         console.log(contacts);
@@ -21,4 +21,4 @@ class ListContacts extends Component {
     }
 }
 
-export default ListContacts
+export default ListContactsClass

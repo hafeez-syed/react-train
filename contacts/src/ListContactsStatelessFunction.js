@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function ListContactsStatelessFunction (props) {
     const contacts = props.contacts;
@@ -11,11 +12,16 @@ function ListContactsStatelessFunction (props) {
                         <p>{contact.name}</p>
                         <p>{contact.email}</p>
                     </div>
-                    <button className="contact-remove"></button>
+                    <button onClick={() => props.onDeleteContact(contact)} className="contact-remove"></button>
                 </li>
             ))}
         </ol>
     )
 }
+
+ListContactsStatelessFunction.propTypes = {
+    contacts: PropTypes.array.isRequired,
+    onDeleteContact: PropTypes.func.isRequired
+};
 
 export default ListContactsStatelessFunction

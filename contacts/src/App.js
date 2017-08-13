@@ -25,17 +25,22 @@ class App extends Component {
             }
         ]
     };
+    removeContact = (contact) => {
+        this.setState((state) => ({
+            contacts: state.contacts.filter((con) => con.id !== contact.id)
+        }));
+    };
     render() {
         return (
             <div>
-                <p>
+                <div>
                     <h2>Contacts with Stateless function component</h2>
-                    <ListContactsStatelessFunction contacts={this.state.contacts} />
-                </p>
-                <p>
+                    <ListContactsStatelessFunction onDeleteContact={this.removeContact} contacts={this.state.contacts} />
+                </div>
+                <div>
                     <h2>Contacts with Class function component</h2>
-                    <ListContactClass contacts={this.state.contacts} />
-                </p>
+                    <ListContactClass onDeleteContact={this.removeContact} contacts={this.state.contacts} />
+                </div>
             </div>
         );
       }

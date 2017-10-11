@@ -43,13 +43,13 @@ class App extends Component {
 
       e.preventDefault();
 
-      this.setState(() => ({ loadingFood: true }))
+      this.setState(() => ({ loadingFood: true }));
 
       fetchRecipes(this.input.value)
           .then((food) => this.setState(() => ({
               food,
               loadingFood: false
-          })))
+          })));
   };
   // this method is not doing enough, it is here just for understanding
   doThing = () => {
@@ -135,6 +135,7 @@ class App extends Component {
                                   placeholder='Search Foods'
                                   ref={(input) => this.input = input}
                               />
+                              
                               <button
                                   className='icon-btn'
                                   onClick={this.searchFood}>

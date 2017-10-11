@@ -146,8 +146,10 @@ class App extends Component {
                               <FoodList
                                   food={food}
                                   onSelect={(recipe) => {
-                                      selectRecipe({ recipe, day: this.state.day, meal: this.state.meal })
-                                      this.closeFoodModal()
+                                      selectRecipe({ recipe, day: this.state.day, meal: this.state.meal });
+                                      const meal = this.state.meal;
+                                      const day = this.state.day;
+                                      this.closeFoodModal({meal, day});
                                   }}
                               />)}
                       </div>}
